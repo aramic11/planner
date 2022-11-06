@@ -26,6 +26,9 @@ let hoursArray = businessTime[i].split(" ");
 let hour = hoursArray[0];
 let newestTime = hour;
 
+//Had to create an if statement so that the rows past 12 could be color coded and saved
+if (hour < 6) {
+    newestTime = parseInt(hour) + 12;}
 // Creates rows with the time, input and save button
 let rowTime = $("<div>").addClass("col-2 hour time-block ").data("value", newestTime);
 let columnInput = $("<textarea>").addClass("col-8 columnInput columnInput" + newestTime);
@@ -69,7 +72,18 @@ $(".saveBtn").on("click", function (event) {
     localStorage.setItem("planner", JSON.stringify(objectiveElement));
 });
 
-
+// loads the planner of things to complete from local storage and displays them on the screen
+function renderLS() {
+    let loadedPlan = JSON.parse(localStorage.getItem("planner"));
+    //Added an if statment so it would load the prior data if theres something in there. I iterated up or until it reaches 9 since we have 9 hours
+    if (loadedPlan !== null) {
+        for (let i = 0; i <= 9; i++) {
+            $(".columnInput" + (i + 9)).text(loadedPlan[i]);
+        }
+    }
+}
+// calls function to load local storage and displays on the screen
+renderLS();
 
 });
 
