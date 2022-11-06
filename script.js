@@ -39,3 +39,23 @@ rowElements.append(rowTime, columnInput, saveButton);
 // adds correct times from my businessTime to the screen
 rowTime.text(businessTime[i]);
 };
+
+//created a function to confitional format the rows color based off what time it is.
+function rowColor() {
+    $(".time-block").each(function () {
+        let columnElement = $(this).siblings(".columnInput");
+        let columnHour = $(this).data("value");
+        //Used an if statement so the correct color could be added depending on the time
+        if (columnHour > moment().hour()) {
+            columnElement.addClass("future");
+        } else if (columnHour < moment().hour()) {
+            columnElement.addClass("past");
+        } else {
+            columnElement.addClass("present");
+        }
+    });
+    }
+// Called the function
+rowColor();
+
+});
