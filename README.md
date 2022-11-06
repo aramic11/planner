@@ -8,3 +8,4 @@ In all it was pretty challenging trying to figure out how to do it. At the begin
 ## Links
 Website: https://aramic11.github.io/planner/
 Github: https://github.com/aramic11/planner
+![Screen Shot 2022-11-06 at 11 33 50 AM](https://user-images.githubusercontent.com/113563367/200189967-a0b90bdb-4d9a-4b1b-817a-fe2dae3c512e.png)
