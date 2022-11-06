@@ -58,4 +58,18 @@ function rowColor() {
 // Called the function
 rowColor();
 
+// Created an event listener on the save button
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();//This is so it doesnt automatically pass by without showing the user the texts
+    //The objective element will look at what the user inputs and will save it to the local storage once its saved
+    let objectiveElement = [];
+    $(".columnInput").each(function (currentIndex, currentEl) {
+    objectiveElement[currentIndex] = $(currentEl).val().trim();
+    });
+    localStorage.setItem("planner", JSON.stringify(objectiveElement));
 });
+
+
+
+});
+
